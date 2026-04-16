@@ -1,12 +1,16 @@
 import React from 'react';
 import {IndianRupee} from "lucide-react"
+import { setSearchQuery } from "../Utlilites/searchSlice";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 function ProductItem({ resData }) {
   // Destructuring directly from resData
   const { id, title, price, tags, rating, images } = resData;
   const navigate = useNavigate();
+  const dispatch =useDispatch()
   const handleClick = ()=>{
+    dispatch(setSearchQuery(""))
     navigate(`/product/${id}`)
   }
 

@@ -7,6 +7,8 @@ import { setSearchQuery } from "../Utlilites/searchSlice";
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const cartItems = useSelector((store)=>store.cart.items)
+  const search = useSelector((store)=>store.search.query)
+
   const dispatch = useDispatch();
   
 
@@ -33,6 +35,7 @@ function Header() {
                   placeholder="Search products..."
                   className="w-full rounded-full py-1.5 pl-10 pr-4 focus:ring-2 focus:ring-amber-600 outline-none bg-white"
                   onChange={(e) => dispatch(setSearchQuery(e.target.value))}
+                  value={search}
                 />
                 <Search
                   className="absolute left-3 top-2 text-gray-400"
@@ -78,6 +81,7 @@ function Header() {
                 placeholder="Search..."
                 className="w-full rounded-lg p-2 bg-white"
                 onChange={(e) => dispatch(setSearchQuery(e.target.value))}
+                value={search}
               />
             </div>
             <div className="flex flex-col gap-4 font-semibold text-lg pt-2">
