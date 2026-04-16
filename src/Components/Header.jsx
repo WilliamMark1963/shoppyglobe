@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Menu, X, ShoppingCart, Search } from "lucide-react"; // Clean icon library
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchQuery } from "../Utlilites/searchSlice";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const cartItems = useSelector((store)=>store.cart.items)
+  const dispatch = useDispatch();
+  
 
   return (
     <header>
@@ -29,6 +32,7 @@ function Header() {
                   type="text"
                   placeholder="Search products..."
                   className="w-full rounded-full py-1.5 pl-10 pr-4 focus:ring-2 focus:ring-amber-600 outline-none bg-white"
+                  onChange={(e) => dispatch(setSearchQuery(e.target.value))}
                 />
                 <Search
                   className="absolute left-3 top-2 text-gray-400"
@@ -73,6 +77,7 @@ function Header() {
                 type="text"
                 placeholder="Search..."
                 className="w-full rounded-lg p-2 bg-white"
+                onChange={(e) => dispatch(setSearchQuery(e.target.value))}
               />
             </div>
             <div className="flex flex-col gap-4 font-semibold text-lg pt-2">
