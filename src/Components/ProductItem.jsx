@@ -1,9 +1,14 @@
 import React from 'react';
 import {IndianRupee} from "lucide-react"
+import { useNavigate } from 'react-router-dom';
 
 function ProductItem({ resData }) {
   // Destructuring directly from resData
   const { id, title, price, tags, rating, images } = resData;
+  const navigate = useNavigate();
+  const handleClick = ()=>{
+    navigate(`/product/${id}`)
+  }
 
   const renderStars = (rating) => {
     const roundedRating = Math.round(rating);
@@ -30,18 +35,14 @@ function ProductItem({ resData }) {
         <img 
           src={images[0]} 
           alt={title} 
-          /* 3. key change: object-cover makes the image fill the entire container.
-             We also remove the padding (p-2) we had before.
-          */
           className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'
         />
-        {/* We removed the badge from here so it doesn't block the product */}
       </div>
 
       {/* 3. CONTENT AREA */}
       <div className='p-2 sm:p-4 bg-white flex-grow border-t border-gray-100'>
         
-        {/* 4. Categor Badge (Moved down here for a neater look) */}
+        {/* 4. Categor Badge  */}
         <div className='mb-2'>
            <span className='inline-block bg-amber-400 text-amber-950 text-[7px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider'>
              {tags[0]}
@@ -73,7 +74,9 @@ function ProductItem({ resData }) {
           <button className='w-full bg-amber-500 text-white py-1.5 rounded-lg text-[10px] sm:text-xs font-bold hover:bg-amber-600 transition-all active:scale-95 shadow-sm'>
             Add to Cart
           </button>
-          <button className='w-full bg-gray-50 text-gray-500 py-1 rounded-lg text-[10px] sm:text-xs font-semibold hover:bg-gray-900 hover:text-white transition-colors'>
+          <button className='w-full bg-gray-50 text-gray-500 py-1 rounded-lg text-[10px] sm:text-xs font-semibold hover:bg-gray-900 hover:text-white transition-colors'
+          onClick={handleClick}
+          >
             Details
           </button>
         </div>
