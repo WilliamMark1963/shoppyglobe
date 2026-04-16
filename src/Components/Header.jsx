@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Menu, X, ShoppingCart, Search } from "lucide-react"; // Clean icon library
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const cartItems = useSelector((store)=>store.cart.items)
 
   return (
     <header>
@@ -41,7 +43,7 @@ function Header() {
               <ul className="hidden md:flex gap-6 font-medium">
                 <li className="hover:text-white cursor-pointer flex gap-1">
                   <ShoppingCart />
-                  Cart (0)
+                  Cart {cartItems? "0":cartItems}
                 </li>
                 <li className="hover:text-white cursor-pointer">
                     <Link to={'/checkout'}>
@@ -75,7 +77,7 @@ function Header() {
             </div>
             <div className="flex flex-col gap-4 font-semibold text-lg pt-2">
               <div className="flex items-center gap-2 hover:text-white cursor-pointer">
-                <ShoppingCart size={20} /> Cart (0)
+                <ShoppingCart size={20} /> Cart {cartItems? "0":cartItems}
               </div>
               <div className="hover:text-white cursor-pointer">
               <Link to={'/checkout'}>
