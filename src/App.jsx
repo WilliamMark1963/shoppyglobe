@@ -1,11 +1,16 @@
-import React from 'react'
+import React from "react";
+import Header from "./Components/Header";
+import Body from "./Components/Body";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
-    <div className='text-2xl bg-slate-900 text-white p-5'>
-      Tailwind CSS
-    </div>
-  )
+    <>
+      <Header />
+      <Body />
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;
