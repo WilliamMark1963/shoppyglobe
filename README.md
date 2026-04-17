@@ -4,7 +4,6 @@
 ![Redux](https://img.shields.io/badge/Redux_Toolkit-State_Management-purple?logo=redux)
 ![Tailwind](https://img.shields.io/badge/TailwindCSS-Styling-38B2AC?logo=tailwind-css)
 ![Vite](https://img.shields.io/badge/Vite-Bundler-yellow?logo=vite)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 ShoppyGlobe is a modern, high-performance **E-commerce application** built with **React, Redux Toolkit, and Tailwind CSS**. It delivers a seamless shopping experience — from browsing products to a fully validated checkout process.
 
@@ -42,23 +41,20 @@ ShoppyGlobe is a modern, high-performance **E-commerce application** built with 
 
 ### 🏠 Home Page
 
-![Home](./assets/home.png)
+![Home](./assets/HomePage.png)
 
-### 🔎 Product Listing
+### 🔎 Product Details
 
-![Products](./assets/products.png)
+![Products](./assets/ProductDetails.png)
 
-### 📦 Product Details
-
-![Details](./assets/details.png)
-
-### 🛒 Cart Page
-
-![Cart](./assets/cart.png)
 
 ### 💳 Checkout Page
 
-![Checkout](./assets/checkout.png)
+![Checkout](./assets/CheckOut.png)
+
+### ⁉️ NotFound Page
+
+![Checkout](./assets/NotFound.png)
 
 ---
 
