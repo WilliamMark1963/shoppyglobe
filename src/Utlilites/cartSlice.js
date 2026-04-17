@@ -22,6 +22,19 @@ const cartSlice = createSlice({
       }
     },
 
+ // Adjust quantity specifically (Min 1, Max 10)
+    updateQuantity: (state, action) => {
+      const { id, change } = action.payload; // change will be +1 or -1
+      const item = state.items.find((item) => item.id === id);
+      if (item) {
+        const newQuantity = item.quantity + change;
+        if (newQuantity >= 1 && newQuantity <= 10) {
+          item.quantity = newQuantity;
+        }
+      }
+    },
+
+
     // Remove a specific product entirely by ID
     removeItems: (state, action) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
