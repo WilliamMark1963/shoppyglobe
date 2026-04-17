@@ -1,16 +1,131 @@
-# React + Vite
+# 🌎 ShoppyGlobe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ShoppyGlobe is a modern, high-performance **E-commerce application** built with **React, Redux Toolkit, and Tailwind CSS**. It delivers a seamless shopping experience — from browsing products via the DummyJSON API to a fully validated checkout process.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Features
 
-## React Compiler
+### 🔍 Dynamic Product Discovery
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Browse a wide range of products
+* Real-time global search filtering
 
-## Expanding the ESLint configuration
+### 🛒 Advanced Cart Logic
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **FIFO Addition**: New items appear at the top
+* **Quantity Management**: Min 1, Max 10 per item
+* **Total Tracking**: Header displays total item count
+
+### ⚡ Optimized Performance
+
+* **Lazy Loading**: Route-based code splitting using `React.lazy` and `Suspense`
+* **Image Optimization**: Native lazy loading with smooth blur-in effect
+
+### 🔐 Secure Checkout
+
+* Fully validated shipping form (Regex for Email & Phone)
+* Responsive order summary
+* Success modal with automatic homepage redirection
+
+---
+
+## 🛠️ Tech Stack
+
+* **Framework**: React.js (Vite)
+* **State Management**: Redux Toolkit
+* **Styling**: Tailwind CSS
+* **Icons**: Lucide React
+* **Routing**: React Router v6
+* **API**: DummyJSON
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+├── Components/
+│   ├── Header.jsx
+│   ├── ProductList.jsx
+│   ├── ProductItem.jsx
+│   ├── ProductDetail.jsx
+│   ├── CheckOut.jsx
+│   └── NotFound.jsx
+├── Utilities/
+│   ├── cartSlice.js
+│   ├── searchSlice.js
+│   ├── appStore.js
+│   └── useFetch.js
+└── main.jsx
+```
+
+---
+
+## ⚙️ Installation
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/your-username/shoppyglobe.git
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Run development server
+
+```bash
+npm run dev
+```
+
+---
+
+## 📝 Key Functionality
+
+### 🖼️ Image Lazy Loading
+
+```jsx
+<img
+  loading="lazy"
+  onLoad={() => setImgLoaded(true)}
+  className={imgLoaded ? 'blur-0' : 'blur-2xl'}
+/>
+```
+
+---
+
+### 🛒 Cart Quantity Logic
+
+```js
+addItems: (state, action) => {
+  const existingItem = state.items.find(item => item.id === action.payload.id);
+  if (existingItem) {
+    if (existingItem.quantity < 10) existingItem.quantity += 1;
+  } else {
+    state.items.unshift({ ...action.payload, quantity: 1 });
+  }
+}
+```
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork this project and submit pull requests.
+For major changes, please open an issue first to discuss your ideas.
+
+---
+
+## 📄 License
+
+This project is licensed under the **William Developer**.
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
