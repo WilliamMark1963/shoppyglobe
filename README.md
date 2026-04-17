@@ -1,10 +1,16 @@
 # 🌎 ShoppyGlobe
 
-ShoppyGlobe is a modern, high-performance **E-commerce application** built with **React, Redux Toolkit, and Tailwind CSS**. It delivers a seamless shopping experience — from browsing products via the DummyJSON API to a fully validated checkout process.
+![React](https://img.shields.io/badge/React-18-blue?logo=react)
+![Redux](https://img.shields.io/badge/Redux_Toolkit-State_Management-purple?logo=redux)
+![Tailwind](https://img.shields.io/badge/TailwindCSS-Styling-38B2AC?logo=tailwind-css)
+![Vite](https://img.shields.io/badge/Vite-Bundler-yellow?logo=vite)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+ShoppyGlobe is a modern, high-performance **E-commerce application** built with **React, Redux Toolkit, and Tailwind CSS**. It delivers a seamless shopping experience — from browsing products to a fully validated checkout process.
 
 ---
 
-## 🚀 Live Features
+## ✨ Features
 
 ### 🔍 Dynamic Product Discovery
 
@@ -13,30 +19,56 @@ ShoppyGlobe is a modern, high-performance **E-commerce application** built with 
 
 ### 🛒 Advanced Cart Logic
 
-* **FIFO Addition**: New items appear at the top
-* **Quantity Management**: Min 1, Max 10 per item
-* **Total Tracking**: Header displays total item count
+* FIFO Addition (latest items on top)
+* Quantity control (Min: 1, Max: 10)
+* Global cart item tracking in header
 
-### ⚡ Optimized Performance
+### ⚡ Performance Optimizations
 
-* **Lazy Loading**: Route-based code splitting using `React.lazy` and `Suspense`
-* **Image Optimization**: Native lazy loading with smooth blur-in effect
+* Route-based lazy loading (`React.lazy`)
+* Image lazy loading with blur-in effect
 
 ### 🔐 Secure Checkout
 
-* Fully validated shipping form (Regex for Email & Phone)
+* Regex-based form validation (Email & Phone)
 * Responsive order summary
-* Success modal with automatic homepage redirection
+* Success modal with auto redirect
+
+---
+
+## 📸 Screenshots
+
+> 📌 Replace the image links below with your actual screenshots (upload them to your repo → `/assets` folder recommended)
+
+### 🏠 Home Page
+
+![Home](./assets/home.png)
+
+### 🔎 Product Listing
+
+![Products](./assets/products.png)
+
+### 📦 Product Details
+
+![Details](./assets/details.png)
+
+### 🛒 Cart Page
+
+![Cart](./assets/cart.png)
+
+### 💳 Checkout Page
+
+![Checkout](./assets/checkout.png)
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Framework**: React.js (Vite)
+* **Frontend**: React.js (Vite)
 * **State Management**: Redux Toolkit
 * **Styling**: Tailwind CSS
-* **Icons**: Lucide React
 * **Routing**: React Router v6
+* **Icons**: Lucide React
 * **API**: DummyJSON
 
 ---
@@ -64,19 +96,19 @@ src/
 
 ## ⚙️ Installation
 
-### 1️⃣ Clone the repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/your-username/shoppyglobe.git
 ```
 
-### 2️⃣ Install dependencies
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 3️⃣ Run development server
+### 3. Run development server
 
 ```bash
 npm run dev
@@ -84,7 +116,7 @@ npm run dev
 
 ---
 
-## 📝 Key Functionality
+## 🧠 Key Implementations
 
 ### 🖼️ Image Lazy Loading
 
@@ -96,9 +128,7 @@ npm run dev
 />
 ```
 
----
-
-### 🛒 Cart Quantity Logic
+### 🛒 Cart Logic (Redux Toolkit)
 
 ```js
 addItems: (state, action) => {
@@ -113,19 +143,28 @@ addItems: (state, action) => {
 
 ---
 
+## 🚀 Future Improvements
+
+* 🔐 User Authentication (Login/Signup)
+* 💳 Payment Gateway Integration
+* ❤️ Wishlist Feature
+* 🌐 Multi-language support
+
+---
+
 ## 🤝 Contributing
 
-Feel free to fork this project and submit pull requests.
-For major changes, please open an issue first to discuss your ideas.
+Contributions are welcome!
+Feel free to fork this repo and submit a pull request.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **William Developer**.
+This project is licensed under the **=William Developer**.
 
 ---
 
-## ⭐ Support
+## ⭐ Show Your Support
 
-If you like this project, give it a ⭐ on GitHub!
+If you like this project, please give it a ⭐ on GitHub — it really helps!
