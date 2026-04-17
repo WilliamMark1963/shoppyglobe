@@ -1,19 +1,30 @@
 import React from 'react';
 import {IndianRupee} from "lucide-react"
-import { setSearchQuery } from "../Utlilites/searchSlice";
+import { setSearchQuery } from "../Utlilites/searchSlice.js";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
+import {addItems} from '../Utlilites/cartSlice.js'
 function ProductItem({ resData }) {
   // Destructuring directly from resData
   const { id, title, price, tags, rating, images } = resData;
   const navigate = useNavigate();
   const dispatch =useDispatch()
+
+
+  //addToCart
+  const addToCart=(e)=>{
+    e.stopPropagation()
+      dispatch(addItems(resData))
+  }
+
+  // Detailed View fucntion
   const handleClick = ()=>{
     dispatch(setSearchQuery(""))
     navigate(`/product/${id}`)
   }
 
+
+  // Redering the Star UI
   const renderStars = (rating) => {
     const roundedRating = Math.round(rating);
     return [1, 2, 3, 4, 5].map((star) => (
@@ -75,7 +86,7 @@ function ProductItem({ resData }) {
 
         {/* 6. COMPACT BUTTONS */}
         <div className='flex flex-col gap-1.5'>
-          <button className='w-full bg-amber-500 text-white py-1.5 rounded-lg text-[10px] sm:text-xs font-bold hover:bg-amber-600 transition-all active:scale-95 shadow-sm'>
+          <button className='w-full bg-amber-500 text-white py-1.5 rounded-lg text-[10px] sm:text-xs font-bold hover:bg-amber-600 transition-all active:scale-95 shadow-sm' onClick={(e)=>{addToCart(e)}}>
             Add to Cart
           </button>
           <button className='w-full bg-gray-50 text-gray-500 py-1 rounded-lg text-[10px] sm:text-xs font-semibold hover:bg-gray-900 hover:text-white transition-colors'

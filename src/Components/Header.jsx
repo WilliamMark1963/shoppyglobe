@@ -50,7 +50,7 @@ function Header() {
               <ul className="hidden md:flex gap-6 font-medium">
                 <li className="hover:text-white cursor-pointer flex gap-1">
                   <ShoppingCart />
-                  Cart {cartItems? "0":cartItems}
+                  Cart ({cartItems.length})
                 </li>
                 <li className="hover:text-white cursor-pointer">
                     <Link to={'/checkout'}>
@@ -86,7 +86,7 @@ function Header() {
             </div>
             <div className="flex flex-col gap-4 font-semibold text-lg pt-2">
               <div className="flex items-center gap-2 hover:text-white cursor-pointer">
-                <ShoppingCart size={20} /> Cart {cartItems? "0":cartItems}
+                <ShoppingCart size={20} /> Cart ({cartItems.length})
               </div>
               <div className="hover:text-white cursor-pointer">
               <Link to={'/checkout'}>
