@@ -1,12 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { IndianRupee, ChevronLeft, ShoppingCart, Star } from 'lucide-react';
+import { IndianRupee, ChevronLeft, ShoppingCart, Star, CheckCircle } from 'lucide-react'; // Added CheckCircle for feedback
+import { useDispatch } from 'react-redux';
+import { addItems } from '../Utlilites/cartSlice.js';
 
 function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isAdded, setIsAdded] = useState(false); // State for temporary feedback
+
+  // --- Add to Cart Handler ---
+  const handleAddToCart = () => {
+    if (product) {
+      // Dispatching product with initial quantity of 1
+      dispatch(addItems({ ...product, quantity: 1 }));
+      
+      // Provide visual feedback for 2 seconds
+      setIsAdded(true);
+      setTimeout(() => setIsAdded(false), 2000);
+    }
+  };
 
   useEffect(() => {
     const getData = async () => {
@@ -42,7 +59,7 @@ function ProductDetail() {
       <div className='max-w-5xl mx-auto px-4 py-6 md:py-12'>
         <div className='flex flex-col md:flex-row items-center md:items-start justify-center gap-8 lg:gap-16'>
           
-          {/* Left: Image - Restricted size so it's not "too large" */}
+          {/* Left: Image */}
           <div className='w-full max-w-[350px] md:max-w-[450px] shrink-0'>
             <div className='aspect-square bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100'>
               <img 
@@ -85,11 +102,25 @@ function ProductDetail() {
                 <span>{product.price}</span>
               </div>
 
-              {/* Action Button - Responsive behavior */}
+              {/* Action Button - Hooked to handleAddToCart */}
               <div className='fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-100 md:relative md:p-0 md:border-none md:bg-transparent z-30'>
-                <button className='w-full md:w-max md:px-12 bg-amber-500 text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-amber-600 transition-all active:scale-95 shadow-xl shadow-amber-200'>
-                  <ShoppingCart size={20} />
-                  Add to Cart
+                <button 
+                  onClick={handleAddToCart}
+                  className={`w-full md:w-max md:px-12 py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-xl shadow-amber-200 ${
+                    isAdded ? 'bg-green-600 hover:bg-green-700' : 'bg-amber-500 hover:bg-amber-600'
+                  } text-white`}
+                >
+                  {isAdded ? (
+                    <>
+                      <CheckCircle size={20} />
+                      Added to Cart
+                    </>
+                  ) : (
+                    <>
+                      <ShoppingCart size={20} />
+                      Add to Cart
+                    </>
+                  )}
                 </button>
               </div>
             </div>
