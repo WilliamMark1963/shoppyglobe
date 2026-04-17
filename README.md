@@ -41,20 +41,20 @@ ShoppyGlobe is a modern, high-performance **E-commerce application** built with 
 
 ### 🏠 Home Page
 
-![Home](./assets/HomePage.png)
+![Home](./src/assets/HomePage.png)
 
 ### 🔎 Product Details
 
-![Products](./assets/ProductDetails.png)
+![Products](./src/assets/ProductDetails.png)
 
 
 ### 💳 Checkout Page
 
-![Checkout](./assets/CheckOut.png)
+![Checkout](./src/assets/CheckOut.png)
 
 ### ⁉️ NotFound Page
 
-![Checkout](./assets/NotFound.png)
+![Checkout](./src/assets/NotFound.png)
 
 ---
 
@@ -95,7 +95,7 @@ src/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/shoppyglobe.git
+git clone https://github.com/WilliamMark1963/shoppyglobe.git
 ```
 
 ### 2. Install dependencies
