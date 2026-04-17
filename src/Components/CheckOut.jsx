@@ -3,7 +3,7 @@ import React from 'react'
 function CheckOut() {
   return (
     <div>
-      CheckOut
+      Check Out
     </div>
   )
 }
