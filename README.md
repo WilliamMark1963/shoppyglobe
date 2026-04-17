@@ -50,11 +50,11 @@ ShoppyGlobe is a modern, high-performance **E-commerce application** built with 
 
 ### 💳 Checkout Page
 
-![Checkout](./src/assets/CheckOut.png)
+![Checkout](./src/assets/CheckOutPage.png)
 
 ### ⁉️ NotFound Page
 
-![Checkout](./src/assets/NotFound.png)
+![Checkout](./src/assets/NotFoundPage.png)
 
 ---
 
